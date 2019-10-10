@@ -1,0 +1,38 @@
+def check_upper (in_str):
+    Upper_Case = set ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")    
+    return in_str & Upper_Case
+
+def check_lower (in_str):
+    Lower_Case = set ("abcdefghijklmnopqrstuvwxyz")    
+    return in_str & Lower_Case
+
+def check_numerals (in_str):
+    Numerals = set ("0123456789")    
+    return in_str & Numerals
+
+def check_special (in_str):
+    Special_Case = set ("$#@")    
+    return in_str & Special_Case
+
+def check_length (str, min_len, max_len):
+    s_len = len (str)
+    return min_len <= s_len <= max_len
+
+def main():
+    pwd = input ("Key in the string:")
+    min_len = int (input ("Key in the min length:"))
+    max_len = int (input ("Key in the max length:"))
+    pwd_set = set (pwd)
+    if (check_length (pwd, min_len, max_len) == False):
+        print ("Your password has to be between", min_len, "and", max_len, "characters")
+    else:
+        if (check_upper (pwd_set) and check_lower (pwd_set) and check_numerals (pwd_set) and  check_special (pwd_set)):
+            print ("Password", pwd, "Is a valid password")
+        else:
+            print ("Password should contain a combination of upper case, lower case, numbers and special characters")
+
+main ()
+         
+
+
+
